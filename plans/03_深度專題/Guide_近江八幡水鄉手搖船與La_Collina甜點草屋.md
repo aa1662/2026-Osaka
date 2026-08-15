@@ -3,7 +3,8 @@
 > **地理座標**：滋賀縣近江八幡市（[八幡堀 Hachiman-bori](https://www.google.com/maps/search/?api=1&query=Hachimanbori) ✕ [日牟禮八幡宮](https://www.google.com/maps/search/?api=1&query=Hinomure+Hachimangu) ✕ [La Collina 近江八幡](https://www.google.com/maps/search/?api=1&query=La+Collina+Omihachiman)）  
 > **所屬日程**：Day 2（下午 13:50 ~ 17:15）  
 > **建議停留**：3 ~ 3.5 小時（水鄉手搖船 35 分鐘 ＋ 日牟禮八幡宮與千成亭 40 分鐘 ＋ La Collina 甜點草屋 1.5 小時）  
-> **核心亮點**：400 年近江商人水鄉 ✕ 《神劍闖江湖》手搖屋形船 ✕ 1900 年日牟禮八幡宮金鴿 ✕ 相機旅圖三大黃金機位 ✕ 藤森照信草屋頂 ✕ CLUB HARIE 現烤熱年輪蛋糕 ✕ A5 炙燒近江牛 ✕ JR 新快速 55 分直達大阪
+> **核心亮點**：400 年近江商人水鄉 ✕ 《神劍闖江湖》手搖屋形船 ✕ 1900 年日牟禮八幡宮金鴿 ✕ 相機旅圖三大黃金機位 ✕ 藤森照信草屋頂 ✕ CLUB HARIE 現烤熱年輪蛋糕 ✕ A5 炙燒近江牛 ✕ JR 新快速 55 分直達大阪  
+> 🔗 **推薦參考部落格**：[相機旅圖 — 近江八幡水鄉散策攝影攻略（八幡堀/日牟禮八幡宮/La Collina）](https://phototravel.tw/omihachiman/)
 
 ---
 
