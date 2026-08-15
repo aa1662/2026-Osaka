@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="2026 日本關西大阪・滋賀・兵庫 4天3夜深度旅行手冊，高山避暑、國寶名城、離峰美食與傍晚私房選">
+  <title>2026 關西大阪・滋賀・兵庫 4D3N 深度漫遊手冊</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/components.css">
+</head>
+<body>
+
+  <!-- 頂部毛玻璃導覽列 -->
+  <nav class="site-nav">
+    <div class="container">
+      <a href="index.html" class="nav-brand">
+        <span>🇯🇵 2026 關西漫遊</span>
+        <span class="brand-badge">4D3N</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html" class="active">🏠 首頁總覽</a></li>
+        <li><a href="day-01.html">Day 1 中之島</a></li>
+        <li><a href="day-02.html">Day 2 琵琶湖</a></li>
+        <li><a href="day-03.html">Day 3 姬路城</a></li>
+        <li><a href="day-04.html">Day 4 勝尾寺</a></li>
+        <li><a href="evening-hub.html">🌆 傍晚 15 選</a></li>
+        <li><a href="guides.html">📖 專題指南</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="container">
+
+    <!-- 🍱 1. 頂部 Bento Grid 狀態看板 -->
+    <section class="bento-grid">
+      
+      <!-- 主視覺 Hero 卡片 (跨 8 欄) -->
+      <div class="bento-card bento-hero col-8">
+        <span class="badge" style="background: rgba(255,255,255,0.2); color: #fff; margin-bottom: 0.75rem;">
+          ✈️ 長榮航空 BR132 / BR129 ✕ 3晚 Granvia Osaka
+        </span>
+        <h1 class="hero-title">2026 大阪・滋賀・兵庫<br>4 天 3 夜深度避暑之旅</h1>
+        <p class="hero-subtitle">
+          📅 2026/8/24 (一) — 8/27 (四) ｜ 琵琶湖 1100m ✕ 國寶白鷺城 ✕ 勝尾寺達摩 ✕ 離峰美食
+        </p>
+        <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+          <a href="day-01.html" class="btn-action" style="background: var(--accent); color: #fff; border: none; padding: 0.6rem 1.25rem;">
+            🚀 開始瀏覽 Day 1
+          </a>
+          <a href="evening-hub.html" class="btn-action" style="background: rgba(255,255,255,0.15); color: #fff; border: 1px solid rgba(255,255,255,0.3); padding: 0.6rem 1.25rem;">
+            🌆 探索傍晚 15 大精選
+          </a>
+        </div>
+      </div>
+
+      <!-- Bento 側邊狀態 1：避暑指標 (跨 4 欄) -->
+      <div class="bento-card bento-cool col-4">
+        <div class="bento-stat">
+          <span class="stat-label">🌲 盛夏避暑特策</span>
+          <span class="stat-value" style="color: var(--cool-lake);">22°C ~ 25°C</span>
+          <p class="stat-desc">
+            <strong>琵琶湖露台 1,100m</strong> 高山微風消暑，比平地低 7°C；<strong>箕面大瀑布</strong> 滿滿負離子。
+          </p>
+        </div>
+      </div>
+
+      <!-- Bento 狀態 2：住宿交通基地 (跨 4 欄) -->
+      <div class="bento-card col-4">
+        <div class="bento-stat">
+          <span class="stat-label">🏨 0 距離出發基地</span>
+          <span class="stat-value" style="font-size: 1.35rem;">大阪格蘭比亞大酒店</span>
+          <p class="stat-desc">
+            JR 大阪站南館共構，HARUKA 特急電梯直達月台，家人逛大丸/LUCUA 零負擔。
+          </p>
+        </div>
+        <div style="margin-top: 0.75rem;">
+          <button class="btn-action btn-copy" onclick="copyText('ホテルグランヴィア大阪', this)">
+            📋 複製飯店日文
+          </button>
+        </div>
+      </div>
+
+      <!-- Bento 狀態 3：JR Pass 省錢效益 (跨 4 欄) -->
+      <div class="bento-card bento-accent col-4">
+        <div class="bento-stat">
+          <span class="stat-label">💰 票券省錢密技</span>
+          <span class="stat-value" style="color: var(--accent);">現省 2,430 円</span>
+          <p class="stat-desc">
+            <strong>JR 關西周遊券 2日券</strong> (4,800円) 涵蓋 Day 2+3（原價 7,230円），直接打 66 折！
+          </p>
+        </div>
+      </div>
+
+      <!-- Bento 狀態 4：離峰美食與夕陽 (跨 4 欄) -->
+      <div class="bento-card col-4">
+        <div class="bento-stat">
+          <span class="stat-label">🌅 金色夕陽 & 美食</span>
+          <span class="stat-value" style="font-size: 1.35rem;" id="sunset-time-badge">日落約 18:40</span>
+          <p class="stat-desc">
+            避開人潮：08:30 早餐、13:00 遲午餐（近江牛/星鰻）、18:30 登高看百萬夕陽。
+          </p>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- 📅 2. 4 天每日行程卡片導覽 -->
+    <h2 class="section-title">📅 4 天 3 夜深度行程導覽</h2>
+    <div class="card-grid">
+
+      <!-- Day 1 卡片 -->
+      <div class="interactive-card">
+        <div>
+          <div class="card-header-tag">
+            <span class="card-rank">Day 1 (8/24 週一)</span>
+            <span class="badge badge-sunset">🌅 淀川百萬夕陽</span>
+          </div>
+          <h3 class="card-title">中之島水岸美學 ✕ 藍天大廈 173m 展望台</h3>
+          <p class="card-japanese">📍 堂島川・安藤忠雄童書森林・梅田スカイビル</p>
+          <p class="card-desc">
+            12:10 抵達 KIX，搭 HARUKA 直達梅田。午後漫步中之島水岸建築，傍晚登頂 173m 露天平台欣賞 360 度淀川金色落日與璀璨夜景。
+          </p>
+          <div class="card-food-box">
+            🍽️ <strong>離峰美食</strong>：GARB weeks 披薩 ➔ 敘敘苑 38F 高空燒肉 / 木地大阪燒
+          </div>
+        </div>
+        <div class="action-toolbar">
+          <a href="day-01.html" class="btn-action" style="background: var(--primary); color: #fff;">
+            📖 進入 Day 1 詳細動線
+          </a>
+        </div>
+      </div>
+
+      <!-- Day 2 卡片 -->
+      <div class="interactive-card">
+        <div>
+          <div class="card-header-tag">
+            <span class="card-rank">Day 2 (8/25 週二)</span>
+            <span class="badge badge-train">🎟️ JR Pass Day 1</span>
+          </div>
+          <h3 class="card-title">琵琶湖 1100m 避暑 ✕ 蓬萊山稜線 ✕ 甲賀忍者村</h3>
+          <p class="card-japanese">📍 びわ湖バレイ・Café 360・甲賀の里忍術村</p>
+          <p class="card-desc">
+            搭最快纜車直上 1,100m，漫步 1.1km 綠色草甸稜線，登頂 1,174m Café 360 圓形甲板吹 23°C 涼風，下午探訪 300 年甲賀忍術屋敷機關。
+          </p>
+          <div class="card-food-box">
+            🍽️ <strong>離峰美食</strong>：だし茶漬け えん ➔ 山頂近江牛漢堡 ➔ 傍晚自由選美食
+          </div>
+        </div>
+        <div class="action-toolbar">
+          <a href="day-02.html" class="btn-action" style="background: var(--primary); color: #fff;">
+            📖 進入 Day 2 詳細動線
+          </a>
+        </div>
+      </div>
+
+      <!-- Day 3 卡片 -->
+      <div class="interactive-card">
+        <div>
+          <div class="card-header-tag">
+            <span class="card-rank">Day 3 (8/26 週三)</span>
+            <span class="badge badge-train">🎟️ JR Pass Day 2</span>
+          </div>
+          <h3 class="card-title">國寶姬路城登大天守 ✕ 好古園星鰻 ✕ 大阪城夕陽點燈</h3>
+          <p class="card-japanese">📍 姫路城・好古園 活水軒・大阪城 MIRAIZA</p>
+          <p class="card-desc">
+            搭 JR 新快速 60 分直達，登頂現存最大純木造 6 層大天守閣，於好古園活水軒邊賞錦鯉瀑布邊享用穴子星鰻御膳，傍晚漫步大阪城外護城河。
+          </p>
+          <div class="card-food-box">
+            🍽️ <strong>離峰美食</strong>：權米衛飯糰 ➔ 活水軒穴子星鰻御膳 ➔ 備長鰻魚飯三吃
+          </div>
+        </div>
+        <div class="action-toolbar">
+          <a href="day-03.html" class="btn-action" style="background: var(--primary); color: #fff;">
+            📖 進入 Day 3 詳細動線
+          </a>
+        </div>
+      </div>
+
+      <!-- Day 4 卡片 -->
+      <div class="interactive-card">
+        <div>
+          <div class="card-header-tag">
+            <span class="card-rank">Day 4 (8/27 週四)</span>
+            <span class="badge badge-walk">⛩️ 滿山紅達摩勝運</span>
+          </div>
+          <h3 class="card-title">勝尾寺萬隻紅達摩 ✕ 箕面大瀑布負離子 ✕ 從容登機</h3>
+          <p class="card-japanese">📍 勝尾寺・箕面大滝・関西国際空港 (BR129)</p>
+          <p class="card-desc">
+            地鐵御堂筋線 24 分直達箕面，參拜關西第一勝運古剎，漫步 33m 壯麗瀑布溪谷步道，中午返梅田採買，15:15 HARUKA 零風險直達機場。
+          </p>
+          <div class="card-food-box">
+            🍽️ <strong>離峰美食</strong>：喫茶 麗門厚蛋三明治 ➔ HARBS 水果千層 ➔ 機場採買
+          </div>
+        </div>
+        <div class="action-toolbar">
+          <a href="day-04.html" class="btn-action" style="background: var(--primary); color: #fff;">
+            📖 進入 Day 4 詳細動線
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- 💰 3. JR 票券省錢精算表 -->
+    <h2 class="section-title">💰 JR 關西地區周遊券 2 日券省錢精算</h2>
+    <div class="table-responsive">
+      <table class="modern-table">
+        <thead>
+          <tr>
+            <th>使用區間 / 日期</th>
+            <th>當日 JR 原價乘車路線</th>
+            <th>原價車資</th>
+            <th>周遊券 2 日券方案</th>
+            <th>實質省下金額</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Day 2 (8/25)</strong></td>
+            <td>大阪 ➔ 志賀 (1,170円) ＋ 志賀 ➔ 甲賀 (990円) ＋ 甲賀 ➔ 大阪 (1,690円)</td>
+            <td>3,850 円</td>
+            <td rowspan="2" style="background: #fffbeb; vertical-align: middle;">
+              🌟 <strong>JR 關西周遊券 2 日券</strong><br>
+              票價：<strong>4,800 円</strong><br>
+              <small>(平均每日僅 2,400 円)</small>
+            </td>
+            <td rowspan="2" style="color: var(--accent); font-weight: 800; font-size: 1.1rem; vertical-align: middle;">
+              🎉 現省 2,430 円 / 人<br>
+              <small>(相當於打 66 折！全家省數千日圓)</small>
+            </td>
+          </tr>
+          <tr>
+            <td><strong>Day 3 (8/26)</strong></td>
+            <td>大阪 ↔ 姬路新快速來回 (3,040円) ＋ 大阪 ↔ 大阪城公園來回 (340円)</td>
+            <td>3,380 円</td>
+          </tr>
+          <tr>
+            <td colspan="2"><strong>兩天 JR 原價加總</strong></td>
+            <td style="font-weight: 700;">7,230 円</td>
+            <td><strong>4,800 円</strong></td>
+            <td style="color: var(--accent); font-weight: 700;">自由進出舞子/神戶零加價！</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- 📖 3.5. 8 大深度專題指南快速入口 -->
+    <div style="background: #ffffff; border: 1px solid var(--border-color); border-left: 4px solid var(--cool-lake); padding: 1.5rem; border-radius: var(--radius-lg); margin: 2rem 0; box-shadow: var(--shadow-sm);">
+      <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+        <div>
+          <span class="badge" style="background: var(--cool-lake-light); color: var(--cool-lake); margin-bottom: 0.35rem;">
+            📖 8 大景點獨立深度專題
+          </span>
+          <h3 style="color: var(--primary); font-size: 1.35rem; margin-bottom: 0.35rem;">
+            景點故事 ✕ 歷史典故 ✕ 社群實戰心得庫
+          </h3>
+          <p style="color: var(--text-muted); font-size: 0.9rem;">
+            姬路城不滅神話、琵琶湖古代湖與徐福仙山、甲賀300年機關屋、勝尾寺達摩開運、中之島米市與義商傳奇等 8 篇專屬獨立攻略。
+          </p>
+        </div>
+        <a href="guides.html" class="btn-action" style="background: var(--cool-lake); color: #fff; padding: 0.65rem 1.25rem; font-size: 0.95rem; border: none;">
+          📖 探索 8 大專題攻略庫 ➔
+        </a>
+      </div>
+    </div>
+
+    <!-- 🌆 4. 傍晚 6 大 O 型主題環線快速預覽 -->
+    <div style="background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); color: #fff; padding: 2rem; border-radius: var(--radius-lg); margin: 2.5rem 0; box-shadow: var(--shadow-lg);">
+      <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+        <div>
+          <span class="badge" style="background: var(--accent); color: #fff; margin-bottom: 0.5rem;">🌟 地鐵出口出發 ✕ 0 回頭路</span>
+          <h2 style="color: #fff; font-size: 1.6rem; margin-bottom: 0.5rem;">大阪傍晚 6 大 O 型主題環線 (Evening Hub)</h2>
+          <p style="color: #cbd5e1; max-width: 650px; font-size: 0.95rem;">
+            每日下午 15:30~17:30 返回大阪後，依體力自由挑選：梅田摩天居酒屋、難波金眼巨獅法善寺、大阪城暮色天滿壽司、弁天町空庭溫泉足湯、天王寺古剎HARUKAS、神戶港洋館神戶牛！
+          </p>
+        </div>
+        <a href="evening-hub.html" class="btn-action" style="background: var(--accent); color: #fff; padding: 0.75rem 1.5rem; font-size: 1rem; border: none;">
+          🎯 進入傍晚 6 大環線導航 ➔
+        </a>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- 📱 5. Mobile-First 底部懸浮導航欄 (常駐手機底部) -->
+  <div class="bottom-dock">
+    <a href="index.html" class="dock-item active">
+      <span class="dock-icon">🏠</span>
+      <span class="dock-label">總覽</span>
+    </a>
+    <a href="day-01.html" class="dock-item">
+      <span class="dock-icon">⏱️</span>
+      <span class="dock-label">Day 1</span>
+    </a>
+    <a href="day-02.html" class="dock-item">
+      <span class="dock-icon">🌲</span>
+      <span class="dock-label">Day 2</span>
+    </a>
+    <a href="day-03.html" class="dock-item">
+      <span class="dock-icon">🏯</span>
+      <span class="dock-label">Day 3</span>
+    </a>
+    <a href="day-04.html" class="dock-item">
+      <span class="dock-icon">⛩️</span>
+      <span class="dock-label">Day 4</span>
+    </a>
+    <a href="evening-hub.html" class="dock-item">
+      <span class="dock-icon">🌆</span>
+      <span class="dock-label">傍晚15選</span>
+    </a>
+  </div>
+
+  <!-- 🏨 一鍵回飯店浮動按鈕 -->
+  <a href="https://www.google.com/maps/search/?api=1&query=Hotel+Granvia+Osaka" target="_blank" class="floating-hotel-btn" title="一鍵導航回飯店">
+    <span>🏨</span>
+    <span>回 Granvia</span>
+  </a>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
