@@ -42,7 +42,8 @@ C:\Data\charlotte-ai-os-dev\Travelplan\2026 Osaka/
 │   │   ├── [Guide_神戶六甲山高山避暑與有馬溫泉金之湯.md](plans/03_深度專題/Guide_神戶六甲山高山避暑與有馬溫泉金之湯.md) # 24°C避暑、六甲枝垂、索道越嶺、金之湯、Mouriya神戶牛
 │   │   ├── [Guide_滋賀琵琶湖露台全景漫步與近江牛美饌.md](plans/03_深度專題/Guide_滋賀琵琶湖露台全景漫步與近江牛美饌.md) # 10:15無霧窗、1.1km草甸、Café 360、近江牛
 │   │   ├── [Guide_近江八幡水鄉手搖船與La_Collina甜點草屋.md](plans/03_深度專題/Guide_近江八幡水鄉手搖船與La_Collina甜點草屋.md) # 400年水鄉、手搖屋形船、日牟禮八幡宮、現烤熱年輪
-│   │   ├── [Guide_勝尾寺勝運達摩與箕面大瀑布.md](plans/03_深度專題/Guide_勝尾寺勝運達摩與箕面大瀑布.md)         # 萬隻紅達摩、計程車上山避坑、炸楓葉天婦羅
+│   │   ├── [Guide_勝尾寺勝運達摩與滿山不倒翁.md](plans/03_深度專題/Guide_勝尾寺勝運達摩與滿山不倒翁.md)         # 萬隻紅達摩、6層套印明信片、易經64卦神籤
+│   │   ├── [Guide_箕面大瀑布與森林溪谷步道.md](plans/03_深度專題/Guide_箕面大瀑布與森林溪谷步道.md)           # 33m飛瀑、大日停車場10分捷徑、瀧安寺紅橋、炸楓葉
 │   │   ├── [Guide_中之島水岸美學與藍天大廈夕陽.md](plans/03_深度專題/Guide_中之島水岸美學與藍天大廈夕陽.md)     # 安藤忠雄青蘋果、中央公會堂、173m黃金夕陽
 │   │   ├── [Guide_大阪城傍晚水岸漫步與MIRAIZA古建築點燈.md](plans/03_深度專題/Guide_大阪城傍晚水岸漫步與MIRAIZA古建築點燈.md) # 護城河無人倒影、1931歐風古建築、天守閣點燈
 │   │   ├── [Guide_中之島水岸名店對決：GARB weeks披薩與AWAKE公會堂蛋包飯.md](plans/03_深度專題/Guide_中之島水岸名店對決：GARB%20weeks披薩與AWAKE公會堂蛋包飯.md) # 15:00避峰遲午餐、堂島川河風
@@ -61,6 +62,8 @@ C:\Data\charlotte-ai-os-dev\Travelplan\2026 Osaka/
     ├── [day-04.html](docs/day-04.html)          # 📅 Day 4 互動時間軸 (含真實高清照片 & Google 實景連結)
     ├── [evening-hub.html](docs/evening-hub.html)# 🌆 大阪傍晚 6 大 O 型主題環線即時導航
     ├── [guides.html](docs/guides.html)          # 📖 專屬景點攻略庫 (含真實高清照片 & 歷史典故)
+    ├── [guide-katsuoji.html](docs/guide-katsuoji.html) # ⛩️ 勝尾寺滿山達摩指南
+    ├── [guide-minoh.html](docs/guide-minoh.html)       # 🌊 箕面大瀑布森林溪谷指南
     ├── [guide-rokko-arima.html](docs/guide-rokko-arima.html) # 🌲 六甲有馬專屬指南
     ├── [guide-omihachiman.html](docs/guide-omihachiman.html) # 🚣 近江八幡專屬指南
     ├── [guide-koka.html](docs/guide-koka.html)  # 🥷 滋賀甲賀忍者村指南
