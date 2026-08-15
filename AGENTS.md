@@ -7,7 +7,7 @@
 ## 1. 核心原則與架構規範
 
 1. **唯一真相來源 (SSoT) 雙向同步**：
-   * **Markdown SSoT**：所有景點、交通、美食與備案內容以根目錄 Markdown 文件為最高準則（如 `00-0. 行程總覽_4D3N.md`、`Day-0X_*.md`、`Guide_*.md`）。
+   * **Markdown SSoT**：所有景點、交通、美食與備案內容以 `plans/` 知識庫目錄 Markdown 文件為最高準則（如 `plans/00_總覽與交通/`、`plans/01_每日行程/`、`plans/03_深度專題/`）。
    * **Web Portal (`docs/`)**：所有網頁（`index.html`、`day-0X.html`、`guide-*.html`、`guides.html`）必須與 Markdown SSoT 100% 內容同步。
 2. **部署與帳號隔離**：
    * 本專案為個人 GitHub 帳號 (`aa1662`) 所屬之公開旅遊指南，發布於 `https://aa1662.github.io/2026-Osaka/`。
