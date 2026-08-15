@@ -50,7 +50,8 @@ C:\Data\charlotte-ai-os-dev\Travelplan\2026 Osaka/
 │   │
 │   └── 📦 Archived/ (備選封存庫)
 │       ├── [Guide_國寶姬路城登大天守與好古園活水軒.md](plans/Archived/Guide_國寶姬路城登大天守與好古園活水軒.md) # 2026新票制、6層木造梯、三大機位、星鰻御膳備用攻略
-│       └── [Guide_甲賀忍者村機關屋敷與忍術體驗.md](plans/Archived/Guide_甲賀忍者村機關屋敷與忍術體驗.md)     # 300年望月家屋敷、實鐵手裏劍、水蜘蛛輕功備用攻略
+│       ├── [Guide_甲賀忍者村機關屋敷與忍術體驗.md](plans/Archived/Guide_甲賀忍者村機關屋敷與忍術體驗.md)     # 300年望月家屋敷、實鐵手裏劍、水蜘蛛輕功備用攻略
+│       └── [Guide_三重伊賀流忍者博物館與伊賀上野城.md](plans/Archived/Guide_三重伊賀流忍者博物館與伊賀上野城.md) # 阿修羅真刀武打秀、30m第一高石垣、彩繪列車備用攻略
 │
 └── 🌐 docs/ 旗艦級旅行互動 Web Portal (可直接於瀏覽器開啟)
     ├── [index.html](docs/index.html)            # 🏠 Portal 首頁（Bento Grid 狀態看板、JR 精算、行程導航）
@@ -59,9 +60,12 @@ C:\Data\charlotte-ai-os-dev\Travelplan\2026 Osaka/
     ├── [day-03.html](docs/day-03.html)          # 📅 Day 3 互動時間軸 (含真實高清照片 & Google 實景連結)
     ├── [day-04.html](docs/day-04.html)          # 📅 Day 4 互動時間軸 (含真實高清照片 & Google 實景連結)
     ├── [evening-hub.html](docs/evening-hub.html)# 🌆 大阪傍晚 6 大 O 型主題環線即時導航
-    ├── [guides.html](docs/guides.html)          # 📖 8 大獨立專屬景點攻略庫 (含真實高清照片 & 歷史典故)
+    ├── [guides.html](docs/guides.html)          # 📖 專屬景點攻略庫 (含真實高清照片 & 歷史典故)
     ├── [guide-rokko-arima.html](docs/guide-rokko-arima.html) # 🌲 六甲有馬專屬指南
     ├── [guide-omihachiman.html](docs/guide-omihachiman.html) # 🚣 近江八幡專屬指南
+    ├── [guide-koka.html](docs/guide-koka.html)  # 🥷 滋賀甲賀忍者村指南
+    ├── [guide-iga.html](docs/guide-iga.html)    # 🥷 三重伊賀忍者博物館指南
+    ├── [guide-himeji.html](docs/guide-himeji.html) # 🏯 國寶姬路城指南
     ├── css/
     │   ├── style.css                            # Bento Grid、時間軸、Mobile-First 底部 Dock
     │   └── components.css                       # 微動畫、字體系統、照片卡片樣式
