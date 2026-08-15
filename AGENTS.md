@@ -7,55 +7,78 @@
 ## 1. 核心原則與架構規範
 
 1. **唯一真相來源 (SSoT) 雙向同步**：
-   * **Markdown SSoT**：所有景點、交通、美食與備案內容以 `plans/` 知識庫目錄 Markdown 文件為最高準則（如 `plans/00_總覽與交通/`、`plans/01_每日行程/`、`plans/03_深度專題/`）。
-   * **Web Portal (`docs/`)**：所有網頁（`index.html`、`day-0X.html`、`guide-*.html`、`guides.html`）必須與 Markdown SSoT 100% 內容同步。
+   * **Markdown SSoT**：所有景點、交通、美食與備案內容以 `plans/` 知識庫目錄 Markdown 文件為最高準則（如 `plans/00_總覽與交通/`、`plans/01_每日行程/`、`plans/02_傍晚主題環線/`、`plans/03_深度專題/`）。
+   * **Web Portal (`docs/`)**：所有網頁（`index.html`、`day-0X.html`、`guide-*.html`、`guides.html`、`evening-hub.html`、`evening-loop-*.html`）必須與 Markdown SSoT 100% 內容同步。
 2. **部署與帳號隔離**：
    * 本專案為個人 GitHub 帳號 (`aa1662`) 所屬之公開旅遊指南，發布於 `https://aa1662.github.io/2026-Osaka/`。
 3. **模式切換規則**：
-   * 當使用者訊息開頭為 **`「問: 」`** 時，自動觸發 **純諮詢 / Codebase 探討模式 (Investigatory Mode)**：專注於分析、解答與架構建議，**絕不主動修改檔案或執行改動操作**，直到使用者明確同意（如回覆「同意」、「動手」）後才可執行。
+   * 當使用者訊息開頭為 **`「問: 」`** 時，自動觸發 **純諮詢 / Codebase 探討模式 (Investigatory Mode)**：專注於分析、解答與架構建議，**絕不主動修改檔案或執行改動操作**，直到使用者明確同意（如回覆「同意」、「好」、「OK」）後才可執行。
 
 ---
 
-## 2. 實景照片挑選與下載 SOP (Photo-Flow)
+## 2. `tripQ 2.0` 外部情報導入與全鏈路閉環協議
 
-在為旅遊專案新增、替換或補充封面與景點照片時，必須嚴格執行以下 **Photo-Flow 標準作業程序**：
+當使用者輸入包含 `tripQ:`、`travelQ:` 或貼上旅遊部落格／官網網址時，觸發 **`tripQ 2.0` 全鏈路自動化作業流程**：
 
 ```
-                       【tripQ 實景照片標準作業流程】
-                                    │
-    ┌────────────────┬──────────────┴────────────────┬────────────────┐
-    ▼                ▼                               ▼                ▼
-【1. 禁絕 AI 生圖】 【2. 優選攝影師實拍】           【3. 防盜鏈安全下載】 【4. 完整性驗收】
- 嚴禁 generate_image  Google Search / 頂級部落格    帶 User-Agent & Referer 檢查 Size > 50KB
- 堅持真實旅遊照片     相機旅圖 / Mimi韓 / 官網大圖   避免 403 / 縮圖 / 壞圖   線上 HTTP 200 驗證
+                    【tripQ 2.0 外部情報導入標準作業流】
+                                     │
+     ┌────────────────┬──────────────┴────────────────┬────────────────┐
+     ▼                ▼                               ▼                ▼
+【1. 深度情報萃取】   【2. 橫式實景大圖】             【3. 雙軌標準交付】   【4. 全站閉環驗證】
+  ・票價/手環/稅費      ・嚴格 16:9 / 3:2 (比率≥1.35)   ・Markdown SSoT      ・Day 時間軸按鈕
+  ・四大拍照機位        ・杜絕直式切圖截斷              ・Web Bento 獨立頁   ・Guides Bento 卡片
+  ・泉質/菜單/避坑      ・防盜鏈安全下載                ・外部部落格跳轉鈕   ・GitHub 200 OK
 ```
 
 ### 規程細節：
 
-1. **🚫 嚴禁使用 AI 生成圖片 (Zero AI Generated Images)**：
-   * 旅遊指南講求「現場真實性」，嚴格禁止使用 `generate_image` 或任何 AI 算圖工具生成景點虛擬插圖。
-2. **📸 尋找高水準實景大圖 (High Aesthetic & Resolution)**：
-   * **來源優先序**：使用者提供的 Google Search 連結 ➔ 專業攝影旅遊網誌（如《相機旅圖》、《Mimi韓》、樂天旅遊、Jalan、日本國家旅遊局 JNTO）。
-   * **構圖震撼度**：挑選具備地標代表性、層次分明（廣角/中焦）與光影優雅的橫幅照片（16:9 或 4:3）。
-   * **解析度標準**：原始寬度建議 $\ge 1200\text{px}$，避免模糊縮圖。
-3. **🛡️ 防盜鏈安全下載管道 (Safe Fetching Pipeline)**：
-   * 使用 Python 腳本下載時，**必須帶上標準 `User-Agent` 與來源站的 `Referer`**，避免被目標網站判定為惡意爬蟲或阻擋防盜鏈（回傳 403 Forbidden 或 1KB 假圖）。
-   * **檔案大小與格式校驗**：下載後必須驗證檔案大小（必須 $> 50\text{KB}$），並確保為合法 JPEG/PNG，杜絕將 HTML 錯誤頁面存成 `.jpg` 的問題。
-4. **🎨 檔案儲存與 Web 佈局套用**：
-   * 圖片存放路徑：`docs/images/{spot_key}.jpg`。
-   * **三大呈現位置同步更新**：
-     * `docs/day-0X.html`：時間軸卡片左側帶圖（`.timeline-card.has-image` 搭配 `.timeline-image-wrap`）。
-     * `docs/guide-{spot}.html`：獨立專題頁頂部全幅 Hero Banner。
-     * `docs/guides.html`：專題庫 Bento 卡片封面圖。
-5. **🚀 部署與線上驗證 (Deploy & Verify)**：
-   * 提交 Git Commit 並 Push 至 GitHub。
-   * 使用腳本對 GitHub Pages 上的圖片與頁面進行 HTTP 狀態碼檢驗，確保全數返回 `HTTP 200 OK`。
+#### 步驟 1：深度情報萃取 (Intelligence Extraction)
+* **實戰避坑與 SOP**：提取門票預約、入湯稅（如 150 円）、智慧手環計費、無霧時段（如 10:15~12:30）、刺青遮蔽規定、交通無障礙與大型行李寄放。
+* **攝影師打卡機位**：提煉 3~4 個黃金拍照點（如免費自拍相機掃碼下載、免費借用提燈、天際鞦韆、無邊際水池視角）。
+* **泉質、設施與在地美饌**：整理泉質功效、特色岩盤浴、平板點餐必吃名物（如近江牛黑咖哩、安土桃山牛肉鍋、在地紅茶霜淇淋）。
+* **常見 QA 清單**：整理 4~6 個旅人最關心的現場問題（拍照禁令邊界、未成年離館時間、交通直通路徑）。
+
+#### 步驟 2：Photo-Flow 橫式實景大圖規範 (Landscape Mandatory)
+* **🚫 嚴禁使用 AI 生成圖片 (Zero AI Generated Images)**：堅持現場真實攝影，嚴禁使用 `generate_image` 或任何 AI 繪圖工具。
+* **📐 嚴格限定「橫式景觀照片 (Landscape)」**：
+  * **長寬比標準**：原始圖片寬高比必須 $\ge 1.35$（**優先採用 16:9 或 3:2 橫幅**），徹底杜絕直式（Portrait）照片在 Web 卡片（180px 高度）或全幅 Hero Banner 中上下被截斷的問題。
+  * **解析度與品質**：原始寬度 $\ge 1200\text{px}$，檔案大小 $> 50\text{KB}$。
+* **🛡️ 防盜鏈安全下載管道**：使用 Python 下載時必須帶上標準瀏覽器 `User-Agent` 與來源站的 `Referer`，驗證為合法 JPEG/PNG。
+
+#### 步驟 3：雙軌標準交付物 (Dual Delivery)
+* **Markdown SSoT 知識庫**：
+  * 存放於 `plans/03_深度專題/Guide_{spot}.md` 或 `plans/02_傍晚主題環線/...`。
+  * 包含「動線流程圖、分步導覽、四大拍照點、美饌菜單、避坑 QA」，並於文末明確標註雙外部部落格參考網址。
+* **Web Portal 獨立旗艦頁**：
+  * 存放於 `docs/guide-{spot}.html` 或 `docs/evening-loop-{N}.html`。
+  * 採用 **Bento Grid UI** 現代化佈局，包含：
+    1. **頂部 Toolbar**：Google Maps 多點導航、日文複製按鈕、即時 WebCam、以及 **「🌐 {作者名} 攻略 ➔」外部跳轉按鈕**（現場一鍵溯源）。
+    2. **四大拍照機位 Bento 卡片**。
+    3. **設施/泉質/美饌 Bento 卡片**。
+    4. **順向 O 型動線時間軸**。
+    5. **旅人實戰避坑 6 大 QA 卡片**。
+
+#### 步驟 4：全站雙向迴路與部署驗收 (Bidirectional Linking & Verification)
+* **全站迴路串聯**：
+  * 在對應的 `docs/day-0X.html` 時間軸節點加入「📖 {景點} 深度攻略 ➔」按鈕。
+  * 在 `docs/guides.html` 或 `docs/evening-hub.html` 總覽頁新增／更新對應的 Bento 封面卡片與導航連結。
+* **自動部署與驗證**：
+  * 執行 Git Commit 並 Push 至 GitHub Pages（`origin master`）。
+  * 透過腳本對 GitHub Pages 上的頁面與圖片進行 HTTP 狀態碼檢驗，確保全數返回 `HTTP 200 OK`。
 
 ---
 
-## 3. `tripQ` 多維旅遊情報檢索協議
+## 3. 備案管理與封存規則 (Archiving Architecture)
 
-當使用者詢問旅遊行程、備案比較、餐廳評價或景點優劣時，觸發 `tripQ` 檢索協議，綜合以下維度輸出：
+* **淘汰或暫時備用的景點攻略**：不直接刪除，而是移動至 `Archived/` 目錄保存（如 `Archived/Guide_甲賀忍者村機關屋敷與忍術體驗.md`、`Archived/Guide_國寶姬路城登大天守與好古園活水軒.md`）。
+* **網頁端備用入口**：在 `docs/guides.html` 底部維護「🎒 親子動態 / 🏯 國寶名城 ✕ 備選特輯」，並在主行程時間軸提供輕量備選標籤與跳轉連結。
+
+---
+
+## 4. 多維旅遊情報檢索矩陣 (Reference Matrix)
+
+在補充細部景點情報時，綜合以下維度進行交叉驗證：
 
 | 維度分類 | 資訊來源與權重 | 著重檢核重點 |
 | :--- | :--- | :--- |
@@ -63,10 +86,3 @@
 | **🇯🇵 日本當地權威** | 食べログ (Tabelog 3.5+ 準米其林門檻)、Jalan、Retrip、觀光協會官網 | 日本人真實評價、正宗名物、最新營業與票價規定 |
 | **⚡ 即時動態體感** | Threads、Instagram、小紅書、Google Maps 最新 1 個月評論 | 現場施工、暑假人潮擁擠度、近期菜單變動、冷氣/避暑真實體感 |
 | **⛅ 官方監測氣象** | 日本氣象廳 (JMA)、山頂 Live WebCam 實況鏡頭 | 8 月盛夏氣溫對比（如山頂 24°C vs 平地 35°C）、降雨機率與起霧時段 |
-
----
-
-## 4. 備案管理與封存規則 (Archiving Architecture)
-
-* **淘汰或暫時備用的景點攻略**：不直接刪除，而是移動至 `Archived/` 目錄保存（如 `Archived/Guide_甲賀忍者村機關屋敷與忍術體驗.md`、`Archived/Guide_國寶姬路城登大天守與好古園活水軒.md`）。
-* **網頁端備用入口**：在 `docs/guides.html` 底部維護「🎒 親子動態 / 🏯 國寶名城 ✕ 備選特輯」，並在主行程時間軸提供輕量備選標籤與跳轉連結。
