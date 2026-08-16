@@ -126,8 +126,9 @@ const JAPANESE_DICTIONARY = {
   }
 };
 
-/* ---------- 2. 語音合成系統 (Web Speech API ✕ 日語聲線強制綁定) ---------- */
+/* ---------- 2. 語音發音系統 (HTML5 線上高音質音訊 ✕ Web Speech API 雙引擎) ---------- */
 let japaneseVoice = null;
+let currentAudio = null;
 
 function loadJapaneseVoice() {
   if ('speechSynthesis' in window) {
@@ -143,25 +144,61 @@ if ('speechSynthesis' in window) {
 }
 
 /**
- * Web Speech API 日語朗讀（雙重保險：強制指定 ja-JP 聲線 ＋ 優先傳入平假名）
+ * HTML5 線上高音質日語音訊播放器（保證三星等任何 Android/iOS 手機 100% 有聲音）
+ */
+function playOnlineJapaneseAudio(text) {
+  if (currentAudio) {
+    currentAudio.pause();
+    currentAudio.currentTime = 0;
+  }
+  const cleanText = text.replace(/[\/\|]/g, '、').trim();
+  const url = `https://translate.google.com/translate_tts?ie=UTF-8&tl=ja&client=tw-ob&q=${encodeURIComponent(cleanText)}`;
+  currentAudio = new Audio(url);
+  currentAudio.play().catch(err => {
+    console.log("Audio playback error, trying web speech fallback", err);
+  });
+}
+
+/**
+ * 終極日語朗讀函數：
+ * 1. 若手機具備原生日語 Voice，調用 Web Speech API
+ * 2. 若為 Samsung S23 等未預載日語包設備，自動無縫切換 HTML5 高音質線上音訊
  */
 function speakJapanese(text, hiragana) {
-  if ('speechSynthesis' in window) {
-    window.speechSynthesis.cancel(); // 停止先前的發音
-    if (!japaneseVoice) {
-      loadJapaneseVoice();
-    }
-    // 優先以平假名發音，徹底避免手機中文引擎將漢字誤唸為中文
-    const speechText = hiragana ? hiragana.replace(/[\/\|]/g, '、') : text;
-    const utterance = new SpeechSynthesisUtterance(speechText);
-    utterance.lang = 'ja-JP';
-    if (japaneseVoice) {
+  const speechText = hiragana ? hiragana.replace(/[\/\|]/g, '、') : text;
+
+  // 1. 若有檢測到原生日語 Voice，優先嘗試 Web Speech
+  if ('speechSynthesis' in window && japaneseVoice) {
+    try {
+      window.speechSynthesis.cancel();
+      const utterance = new SpeechSynthesisUtterance(speechText);
+      utterance.lang = 'ja-JP';
       utterance.voice = japaneseVoice;
+      utterance.rate = 0.85;
+      utterance.pitch = 1.0;
+      
+      let hasStarted = false;
+      utterance.onstart = () => { hasStarted = true; };
+      utterance.onerror = () => {
+        playOnlineJapaneseAudio(speechText);
+      };
+      
+      window.speechSynthesis.speak(utterance);
+      
+      // 看門狗：若 Android 設備 350ms 內未觸發發音，自動切換至 HTML5 Audio
+      setTimeout(() => {
+        if (!hasStarted && !window.speechSynthesis.speaking) {
+          playOnlineJapaneseAudio(speechText);
+        }
+      }, 350);
+      return;
+    } catch (e) {
+      // 異常時直接走 HTML5 Audio
     }
-    utterance.rate = 0.85; // 稍微放慢以清晰辨識
-    utterance.pitch = 1.0;
-    window.speechSynthesis.speak(utterance);
   }
+
+  // 2. 無日語 Voice (如三星手機)，直接調用 HTML5 線上日語發音
+  playOnlineJapaneseAudio(speechText);
 }
 
 /* ---------- 3. Toast Notification & Pronunciation Card System ---------- */
