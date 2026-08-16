@@ -126,7 +126,45 @@ const JAPANESE_DICTIONARY = {
   }
 };
 
-/* ---------- 2. Toast Notification & Pronunciation Card System ---------- */
+/* ---------- 2. 語音合成系統 (Web Speech API ✕ 日語聲線強制綁定) ---------- */
+let japaneseVoice = null;
+
+function loadJapaneseVoice() {
+  if ('speechSynthesis' in window) {
+    const voices = window.speechSynthesis.getVoices();
+    // 優先匹配日語原生聲線 (iOS Kyoko/Otoya、Android Google 日本語、ja-JP 等)
+    japaneseVoice = voices.find(v => v.lang === 'ja-JP' || v.lang === 'ja_JP' || v.lang.startsWith('ja')) || null;
+  }
+}
+
+if ('speechSynthesis' in window) {
+  loadJapaneseVoice();
+  window.speechSynthesis.onvoiceschanged = loadJapaneseVoice;
+}
+
+/**
+ * Web Speech API 日語朗讀（雙重保險：強制指定 ja-JP 聲線 ＋ 優先傳入平假名）
+ */
+function speakJapanese(text, hiragana) {
+  if ('speechSynthesis' in window) {
+    window.speechSynthesis.cancel(); // 停止先前的發音
+    if (!japaneseVoice) {
+      loadJapaneseVoice();
+    }
+    // 優先以平假名發音，徹底避免手機中文引擎將漢字誤唸為中文
+    const speechText = hiragana ? hiragana.replace(/[\/\|]/g, '、') : text;
+    const utterance = new SpeechSynthesisUtterance(speechText);
+    utterance.lang = 'ja-JP';
+    if (japaneseVoice) {
+      utterance.voice = japaneseVoice;
+    }
+    utterance.rate = 0.85; // 稍微放慢以清晰辨識
+    utterance.pitch = 1.0;
+    window.speechSynthesis.speak(utterance);
+  }
+}
+
+/* ---------- 3. Toast Notification & Pronunciation Card System ---------- */
 let toastTimeout;
 
 function initToasts() {
@@ -138,8 +176,8 @@ function initToasts() {
       <div class="toast-content" style="display:flex; flex-direction:column; gap:0.35rem; width:100%;">
         <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid rgba(255,255,255,0.2); padding-bottom:0.35rem;">
           <span style="font-weight:700; color:#4ade80; font-size:0.92rem;">✅ 已複製日文！可出示給司機或貼地圖</span>
-          <button id="toast-speak-btn" style="background:#0284c7; color:#fff; border:none; border-radius:4px; padding:2px 8px; font-size:0.78rem; cursor:pointer; display:flex; align-items:center; gap:2px;">
-            🔊 聽發音
+          <button id="toast-speak-btn" style="background:#0284c7; color:#fff; border:none; border-radius:4px; padding:3px 10px; font-size:0.8rem; font-weight:700; cursor:pointer; display:flex; align-items:center; gap:3px;">
+            🔊 聽日語發音
           </button>
         </div>
         <div id="toast-jp-main" style="font-size:1.15rem; font-weight:800; color:#ffffff; letter-spacing:0.02em;"></div>
@@ -168,7 +206,7 @@ function showPronunciationToast(text, hiragana, romaji, duration = 6000) {
   if (speakBtn) {
     speakBtn.onclick = (e) => {
       e.stopPropagation();
-      speakJapanese(text);
+      speakJapanese(text, hiragana);
     };
   }
 
@@ -178,19 +216,6 @@ function showPronunciationToast(text, hiragana, romaji, duration = 6000) {
   toastTimeout = setTimeout(() => {
     toast.classList.remove('show');
   }, duration);
-}
-
-/**
- * Web Speech API 日語朗讀
- */
-function speakJapanese(text) {
-  if ('speechSynthesis' in window) {
-    window.speechSynthesis.cancel(); // 停止先前的發音
-    const utterance = new SpeechSynthesisUtterance(text);
-    utterance.lang = 'ja-JP';
-    utterance.rate = 0.85; // 稍微放慢以清晰辨識
-    window.speechSynthesis.speak(utterance);
-  }
 }
 
 /**
