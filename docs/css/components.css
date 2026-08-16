@@ -357,3 +357,17 @@ h1, h2, h3, h4, h5, h6 {
     aspect-ratio: 16 / 9;
   }
 }
+
+/* ---------- 8. In-Text Google Maps Navigation Links ---------- */
+.text-map-link {
+  color: inherit;
+  text-decoration: underline dotted 1.5px currentColor;
+  text-underline-offset: 3px;
+  transition: color var(--transition-fast), text-decoration-color var(--transition-fast);
+  cursor: pointer;
+}
+
+.text-map-link:hover {
+  color: var(--accent);
+  text-decoration: underline solid 2px var(--accent);
+}
