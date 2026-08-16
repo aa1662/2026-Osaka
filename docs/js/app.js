@@ -10,7 +10,123 @@ document.addEventListener('DOMContentLoaded', () => {
   highlightActiveNav();
 });
 
-/* ---------- 1. Toast Notification & Copy System ---------- */
+/* ---------- 1. 日文發音、平假名、羅馬拼音 (Romaji) 知識庫辭典 ---------- */
+const JAPANESE_DICTIONARY = {
+  // 飯店與出發地
+  "ホテルグランヴィア大阪": {
+    hiragana: "ホテル グランヴィア おおさか",
+    romaji: "Hoteru Guranvia Ōsaka",
+    en: "Hotel Granvia Osaka"
+  },
+  
+  // Day 1: 難波・中之島
+  "難波八阪神社 大国主神社 法善寺横丁": {
+    hiragana: "なんば やさか じんじゃ / おおくにぬし じんじゃ / ほうぜんじ よこちょう",
+    romaji: "Namba Yasaka Jinja / Ōkuninushi Jinja / Hōzenji Yokochō"
+  },
+  "難波八阪神社": {
+    hiragana: "なんば やさか じんじゃ",
+    romaji: "Namba Yasaka Jinja"
+  },
+  "中之島 大阪市中央公会堂 梅田スカイビル 空中庭園展望台": {
+    hiragana: "なかのしま / おおさかし ちゅうおう こうかいどう / うめだ スカイビル",
+    romaji: "Nakanoshima / Chūō Kōkaidō / Umeda Sky Building"
+  },
+  "中之島": {
+    hiragana: "なかのしま",
+    romaji: "Nakanoshima"
+  },
+  "梅田スカイビル": {
+    hiragana: "うめだ スカイビル",
+    romaji: "Umeda Sky Building"
+  },
+  "GARB weeks AWAKE": {
+    hiragana: "ガーブ ウィークス / アウェイク",
+    romaji: "Gābu Wīkusu / Aweiku"
+  },
+  "大阪城 天守閣 ミライザ大阪城": {
+    hiragana: "おおさかじょう てんしゅかく / ミライザ おおさかじょう",
+    romaji: "Ōsakajō Tenshukaku / Miraiza Ōsakajō"
+  },
+  "大丸梅田店 HARBS 小倉山荘 ポケモンセンター": {
+    hiragana: "だいまる うめだてん / ハーブス / おぐらさんそう",
+    romaji: "Daimaru Umedaten / Hābusu / Ogurasansō"
+  },
+
+  // Day 2: 京都・鞍馬 ✕ 貴船
+  "鞍馬寺 貴船神社 川床料理 水占い 叡山電車": {
+    hiragana: "くらまでら / きふねじんじゃ / かわどこ りょうり / えいざんでんしゃ",
+    romaji: "Kurama-dera / Kifune-jinja / Kawadoko / Eizan Densha"
+  },
+  "鞍馬寺": {
+    hiragana: "くらまでら",
+    romaji: "Kurama-dera"
+  },
+  "貴船神社": {
+    hiragana: "きふねじんじゃ",
+    romaji: "Kifune-jinja"
+  },
+  "川床料理": {
+    hiragana: "かわどこ りょうり",
+    romaji: "Kawadoko Ryōri"
+  },
+
+  // Day 3: 京都/滋賀・比叡山延曆寺
+  "比叡山 延暦寺 根本中堂 坂本ケーブル 穴太衆積": {
+    hiragana: "ひえいざん / えんりゃくじ / こんぽんちゅうどう / さかもと ケーブル",
+    romaji: "Hieizan / Enryakuji / Konpon Chūdō / Sakamoto Cable"
+  },
+  "比叡山 延暦寺": {
+    hiragana: "ひえいざん えんりゃくじ",
+    romaji: "Hieizan Enryakuji"
+  },
+  "根本中堂": {
+    hiragana: "こんぽんちゅうどう",
+    romaji: "Konpon Chūdō"
+  },
+  "坂本ケーブル": {
+    hiragana: "さかもと ケーブル",
+    romaji: "Sakamoto Kēburu"
+  },
+
+  // Day 4: 箕面・勝尾寺
+  "勝尾寺 箕面大滝 勝ちダルマ 滝安寺": {
+    hiragana: "かつおうじ / みのお おおたき / かち ダルマ / りゅうあんじ",
+    romaji: "Katsuō-ji / Minoh Ōtaki / Kachi Daruma / Ryūanji"
+  },
+  "勝尾寺": {
+    hiragana: "かつおうじ",
+    romaji: "Katsuō-ji"
+  },
+  "箕面大滝": {
+    hiragana: "みのお おおたき",
+    romaji: "Minoh Ōtaki"
+  },
+
+  // 備選專題庫：神戶、姬路、滋賀
+  "六甲山 GREENIA 有馬温泉 金の湯 モーリヤ": {
+    hiragana: "ろっこうさん / グリーニア / ありま おんせん / きんのゆ / モーリヤ",
+    romaji: "Rokkōsan / GREENIA / Arima Onsen / Kin no Yu / Mōriya"
+  },
+  "姫路城 好古園 活水軒": {
+    hiragana: "ひめじじょう / こうこえん / かっすいけん",
+    romaji: "Himejijō / Kōkoen / Kassuiken"
+  },
+  "びわ湖バレイ ラ コリーナ近江八幡 八幡堀": {
+    hiragana: "びわこ バレイ / ラ コリーナ おうみはちまん / はちまんぼり",
+    romaji: "Biwako Barei / La Collina / Hachimanbori"
+  },
+  "甲賀の里忍術村": {
+    hiragana: "こうかのさと にんじゅつむら",
+    romaji: "Kōka no Sato Ninjutsu Mura"
+  },
+  "伊賀流忍者博物館 伊賀上野城": {
+    hiragana: "いがりゅう にんじゃ はくぶつかん / いが うえのじょう",
+    romaji: "Igaryū Ninja Hakubutsukan / Iga Uenojō"
+  }
+};
+
+/* ---------- 2. Toast Notification & Pronunciation Card System ---------- */
 let toastTimeout;
 
 function initToasts() {
@@ -18,17 +134,44 @@ function initToasts() {
     const toast = document.createElement('div');
     toast.id = 'toast-box';
     toast.className = 'toast-box';
-    toast.innerHTML = '<span>✅</span> <span id="toast-msg">已複製！</span>';
+    toast.innerHTML = `
+      <div class="toast-content" style="display:flex; flex-direction:column; gap:0.35rem; width:100%;">
+        <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid rgba(255,255,255,0.2); padding-bottom:0.35rem;">
+          <span style="font-weight:700; color:#4ade80; font-size:0.92rem;">✅ 已複製日文！可出示給司機或貼地圖</span>
+          <button id="toast-speak-btn" style="background:#0284c7; color:#fff; border:none; border-radius:4px; padding:2px 8px; font-size:0.78rem; cursor:pointer; display:flex; align-items:center; gap:2px;">
+            🔊 聽發音
+          </button>
+        </div>
+        <div id="toast-jp-main" style="font-size:1.15rem; font-weight:800; color:#ffffff; letter-spacing:0.02em;"></div>
+        <div style="font-size:0.82rem; color:#bae6fd; line-height:1.4;">
+          <span style="color:#93c5fd;">🗣️ 平假名：</span><span id="toast-jp-kana"></span>
+        </div>
+        <div style="font-size:0.82rem; color:#fde047; line-height:1.4;">
+          <span style="color:#fef08a;">🔤 羅馬拼音：</span><span id="toast-jp-romaji" style="font-weight:600;"></span>
+        </div>
+      </div>
+    `;
     document.body.appendChild(toast);
   }
 }
 
-function showToast(message, duration = 2500) {
+function showPronunciationToast(text, hiragana, romaji, duration = 6000) {
   const toast = document.getElementById('toast-box');
-  const msgSpan = document.getElementById('toast-msg');
   if (!toast) return;
 
-  msgSpan.textContent = message;
+  document.getElementById('toast-jp-main').textContent = text;
+  document.getElementById('toast-jp-kana').textContent = hiragana || '（標準日語讀音）';
+  document.getElementById('toast-jp-romaji').textContent = romaji || '（Romaji Pronunciation）';
+
+  // Audio Speech Button
+  const speakBtn = document.getElementById('toast-speak-btn');
+  if (speakBtn) {
+    speakBtn.onclick = (e) => {
+      e.stopPropagation();
+      speakJapanese(text);
+    };
+  }
+
   toast.classList.add('show');
 
   clearTimeout(toastTimeout);
@@ -38,22 +181,56 @@ function showToast(message, duration = 2500) {
 }
 
 /**
- * Global function to copy Japanese place names/addresses
- * Called via onclick="copyText('びわ湖バレイ', this)"
+ * Web Speech API 日語朗讀
+ */
+function speakJapanese(text) {
+  if ('speechSynthesis' in window) {
+    window.speechSynthesis.cancel(); // 停止先前的發音
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.lang = 'ja-JP';
+    utterance.rate = 0.85; // 稍微放慢以清晰辨識
+    window.speechSynthesis.speak(utterance);
+  }
+}
+
+/**
+ * 全局複製日文函數（支援平假名、羅馬拼音與發音）
+ * 可透過 onclick="copyText('鞍馬寺 貴船神社', this)" 或 data-* 屬性調用
  */
 window.copyText = function(text, buttonElement) {
+  let hiragana = '';
+  let romaji = '';
+
+  // 1. 優先從元素屬性獲取
+  if (buttonElement) {
+    hiragana = buttonElement.getAttribute('data-hiragana') || '';
+    romaji = buttonElement.getAttribute('data-romaji') || '';
+  }
+
+  // 2. 若無則從辭典檢索
+  if (!hiragana || !romaji) {
+    for (const [key, data] of Object.entries(JAPANESE_DICTIONARY)) {
+      if (text.includes(key) || key.includes(text)) {
+        hiragana = data.hiragana;
+        romaji = data.romaji;
+        break;
+      }
+    }
+  }
+
+  // 3. 剪貼簿寫入
   if (navigator.clipboard && window.isSecureContext) {
     navigator.clipboard.writeText(text).then(() => {
-      handleCopySuccess(text, buttonElement);
+      handleCopySuccess(text, hiragana, romaji, buttonElement);
     }).catch(() => {
-      fallbackCopyText(text, buttonElement);
+      fallbackCopyText(text, hiragana, romaji, buttonElement);
     });
   } else {
-    fallbackCopyText(text, buttonElement);
+    fallbackCopyText(text, hiragana, romaji, buttonElement);
   }
 };
 
-function fallbackCopyText(text, buttonElement) {
+function fallbackCopyText(text, hiragana, romaji, buttonElement) {
   const textArea = document.createElement('textarea');
   textArea.value = text;
   textArea.style.position = 'fixed';
@@ -63,29 +240,32 @@ function fallbackCopyText(text, buttonElement) {
   textArea.select();
   try {
     document.execCommand('copy');
-    handleCopySuccess(text, buttonElement);
+    handleCopySuccess(text, hiragana, romaji, buttonElement);
   } catch (err) {
-    showToast('❌ 複製失敗，請手動複製');
+    showPronunciationToast(text, hiragana, romaji);
   }
   document.body.removeChild(textArea);
 }
 
-function handleCopySuccess(text, buttonElement) {
-  showToast(`📋 已複製日文「${text}」！可直接出示給司機或貼入地圖`);
+function handleCopySuccess(text, hiragana, romaji, buttonElement) {
+  showPronunciationToast(text, hiragana, romaji);
+
   if (buttonElement) {
     const originalHtml = buttonElement.innerHTML;
-    buttonElement.innerHTML = '<span>✅ 已複製</span>';
+    buttonElement.innerHTML = '<span>✅ 已複製 (已展讀音)</span>';
     buttonElement.style.borderColor = 'var(--accent)';
     buttonElement.style.color = 'var(--accent)';
+    
+    // 如果身旁有發音標籤可動態顯示
     setTimeout(() => {
       buttonElement.innerHTML = originalHtml;
       buttonElement.style.borderColor = '';
       buttonElement.style.color = '';
-    }, 1800);
+    }, 2500);
   }
 }
 
-/* ---------- 2. Collapsible Accordions ---------- */
+/* ---------- 3. 折疊手風琴 ---------- */
 function initAccordions() {
   const headers = document.querySelectorAll('.accordion-header');
   headers.forEach(header => {
@@ -96,56 +276,34 @@ function initAccordions() {
   });
 }
 
-/* ---------- 3. Instant Filter Pills (Evening Hub) ---------- */
+/* ---------- 4. 傍晚篩選標籤 ---------- */
 function initEveningFilters() {
-  const filterPills = document.querySelectorAll('.filter-pill');
-  const cards = document.querySelectorAll('.interactive-card[data-category]');
-
-  filterPills.forEach(pill => {
+  const pills = document.querySelectorAll('.filter-pill');
+  pills.forEach(pill => {
     pill.addEventListener('click', () => {
-      filterPills.forEach(p => p.classList.remove('active'));
+      pills.forEach(p => p.classList.remove('active'));
       pill.classList.add('active');
-
-      const filterValue = pill.getAttribute('data-filter');
-
-      cards.forEach(card => {
-        const categories = card.getAttribute('data-category').split(' ');
-        if (filterValue === 'all' || categories.includes(filterValue)) {
-          card.style.display = 'flex';
-          card.classList.add('fade-in-up');
-        } else {
-          card.style.display = 'none';
-        }
-      });
     });
   });
 }
 
-/* ---------- 4. Golden Hour Sunset Dynamic Calculation ---------- */
+/* ---------- 5. 夕陽黃金時刻倒數 ---------- */
 function initGoldenHour() {
-  const sunsetEl = document.getElementById('sunset-time-badge');
-  if (sunsetEl) {
-    // Osaka August 24-27 average sunset is approx 18:38 ~ 18:42
-    sunsetEl.textContent = '🌅 今日大阪日落：18:40 (黃金魔幻時刻 18:15~18:55)';
+  const sunsetBadge = document.getElementById('sunset-time-badge');
+  if (sunsetBadge) {
+    sunsetBadge.title = '2026年8月底大阪平均日落時刻約為 18:35~18:42';
   }
 }
 
-/* ---------- 5. Highlight Active Navigation ---------- */
+/* ---------- 6. 導覽列 Active 狀態自動同步 ---------- */
 function highlightActiveNav() {
-  const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+  const path = window.location.pathname;
+  const page = path.split("/").pop() || 'index.html';
+  const navLinks = document.querySelectorAll('.nav-links a, .bottom-dock a');
   
-  // Desktop Links
-  document.querySelectorAll('.nav-links a').forEach(link => {
+  navLinks.forEach(link => {
     const href = link.getAttribute('href');
-    if (href === currentPath || (currentPath === '' && href === 'index.html')) {
-      link.classList.add('active');
-    }
-  });
-
-  // Mobile Bottom Dock Links
-  document.querySelectorAll('.dock-item').forEach(link => {
-    const href = link.getAttribute('href');
-    if (href === currentPath || (currentPath === '' && href === 'index.html')) {
+    if (href === page) {
       link.classList.add('active');
     }
   });
