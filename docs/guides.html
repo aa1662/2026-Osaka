@@ -71,7 +71,7 @@
     <!-- 頁首標題 -->
     <div style="margin-bottom: 1.5rem;">
       <span class="badge" style="background: var(--cool-lake-light); color: var(--cool-lake); margin-bottom: 0.5rem;">
-        📖 12 大獨立景點專屬攻略 ✕ 歷史典故 ✕ 社群實戰心得
+        📖 13 大獨立景點專屬攻略 ✕ 歷史典故 ✕ 社群實戰心得
       </span>
       <h1 style="font-size: 2.1rem; color: var(--primary); margin-bottom: 0.5rem;">
         關西名景深度專題 ✕ 社群實戰指南庫
@@ -83,18 +83,45 @@
 
     <!-- 🏷️ 地域分類即時篩選標籤 -->
     <div class="filter-pills">
-      <button class="filter-btn active" onclick="filterGuides('all', this)">🔥 全部專題 (<span id="count-all">12</span>)</button>
-      <button class="filter-btn" onclick="filterGuides('kyoto', this)">🌲 京都・洛北避暑 (<span id="count-kyoto">1</span>)</button>
+      <button class="filter-btn active" onclick="filterGuides('all', this)">🔥 全部專題 (<span id="count-all">13</span>)</button>
+      <button class="filter-btn" onclick="filterGuides('kyoto', this)">🌲 京都・洛北避暑 (<span id="count-kyoto">2</span>)</button>
       <button class="filter-btn" onclick="filterGuides('hyogo', this)">⛰️ 兵庫・神戶名城 (<span id="count-hyogo">2</span>)</button>
-      <button class="filter-btn" onclick="filterGuides('shiga', this)">🌊 滋賀・湖光水鄉 (<span id="count-shiga">3</span>)</button>
+      <button class="filter-btn" onclick="filterGuides('shiga', this)">🌊 滋賀・湖光水鄉 (<span id="count-shiga">4</span>)</button>
       <button class="filter-btn" onclick="filterGuides('osaka', this)">🏙️ 大阪・水岸文化 (<span id="count-osaka">5</span>)</button>
       <button class="filter-btn" onclick="filterGuides('ninja', this)">🥷 戰國忍者特輯 (<span id="count-ninja">2</span>)</button>
     </div>
 
-    <!-- 12 大專題 Bento Grid 卡片矩陣 -->
+    <!-- 13 大專題 Bento Grid 卡片矩陣 -->
     <div class="guides-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem; margin-bottom: 2.5rem;">
 
-      <!-- 1. 【NEW】京都鞍馬寺 ✕ 貴船神社 -->
+      <!-- 1. 【NEW】京都比叡山延曆寺 -->
+      <a href="guide-hieizan.html" class="guide-card-item" data-category="kyoto shiga" style="text-decoration: none; color: inherit;">
+        <div class="bento-card card-interactive" style="padding: 0; overflow: hidden; border-top: 4px solid #0284c7; height: 100%; display: flex; flex-direction: column;">
+          <div style="position: relative; height: 180px;">
+            <img src="images/hieizan.jpg" alt="比叡山延曆寺與琵琶湖全景" style="width: 100%; height: 100%; object-fit: cover;">
+            <span class="img-floating-tag">🌲 海拔 848m 避暑 ✕ 雙傳奇登山纜車 ✕ 1200年不滅法燈</span>
+          </div>
+          <div style="padding: 1.25rem; flex: 1; display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.4rem;">
+                <h3 style="color: #0369a1; font-size: 1.25rem; margin:0;">
+                  🌲 比叡山延曆寺 848m 越嶺橫斷
+                </h3>
+                <span class="badge" style="background:#e0f2fe; color:#0369a1; font-weight:700;">京都 ✕ 滋賀</span>
+              </div>
+              <p style="font-size: 0.88rem; color: var(--text-sub); line-height: 1.55;">
+                叡電未來感觀光車 HIEI、全日最陡纜車登頂（22°C 涼溫）、根本中堂不滅法燈、全日最長坂本纜車俯瞰琵琶湖與 JR 新快速直達大阪。
+              </p>
+            </div>
+            <div style="margin-top: 1rem; display: flex; justify-content: space-between; align-items: center;">
+              <span class="badge" style="background:#e0f2fe; color:#0369a1;">京都進 ➔ 滋賀出</span>
+              <span style="font-weight: 700; color: #0284c7; font-size: 0.88rem;">閱讀完整攻略 ➔</span>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <!-- 2. 【NEW】京都鞍馬寺 ✕ 貴船神社 -->
       <a href="guide-kurama-kifune.html" class="guide-card-item" data-category="kyoto" style="text-decoration: none; color: inherit;">
         <div class="bento-card card-interactive" style="padding: 0; overflow: hidden; border-top: 4px solid #16a34a; height: 100%; display: flex; flex-direction: column;">
           <div style="position: relative; height: 180px;">
