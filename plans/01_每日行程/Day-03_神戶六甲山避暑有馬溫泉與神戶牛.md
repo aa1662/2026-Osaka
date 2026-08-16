@@ -2,6 +2,7 @@
 
 > **日期**：2026/08/26 (三)  
 > **核心主題**：高山避暑 (24°C) ✕ 昭和登山纜車 ✕ 索道飛越峽谷 ✕ 日本三大古湯「金之湯」✕ A5 神戶牛鐵板燒 ✕ 神戶港 BE KOBE 夜景 ✕ 實戰避坑 6 大盤點  
+> **即時氣象與實況**：[🌐 兵庫神戶 10 日天氣預報 (Weather.com)](https://weather.com/zh-TW/jp/hyogo/city/kobe/tenday) ｜ [🌐 兵庫姬路 10 日天氣預報 (Weather.com)](https://weather.com/zh-TW/jp/hyogo/city/himeji/tenday) ｜ [📹 六甲山天覽台即時 Live Cam](https://www.rokkosan.com/live_camera/)  
 > **使用票券**：**🌟 【JR 關西地區鐵路周遊券 2 日券】**（第 2 日使用，大阪～神戶新快速無限搭乘）＋ 六甲有馬越嶺乘車券  
 > **住宿大本營**：[大阪格蘭比亞大酒店 (Hotel Granvia Osaka / JR 大阪站直結)](https://www.google.com/maps/search/?api=1&query=Hotel+Granvia+Osaka)
 
