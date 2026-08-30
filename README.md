@@ -3,7 +3,7 @@
 > **旅程期間**：2026 年 8 月 24 日（週一）～ 2026 年 8 月 27 日（週四）  
 > **出發航班**：長榮航空 **BR132** (TPE 08:20 ➔ KIX 12:10)  
 > **回程航班**：長榮航空 **BR129** (KIX 18:30 ➔ TPE 20:30)  
-> **住宿基地**：[大阪格蘭比亞大酒店 (Hotel Granvia Osaka)](https://www.google.com/maps/search/?api=1&query=Hotel+Granvia+Osaka)（JR 大阪站南館共構，3 晚連住）  
+> **住宿基地**：[大阪梅田站直結基地 (大阪梅田站直結基地)](https://www.google.com/maps/search/?api=1&query=Hotel+大阪梅田站直結基地+Osaka)（JR 大阪站南館共構，3 晚連住）  
 > **核心亮點**：琵琶湖 1100m 高山避暑 ✕ 近江八幡水鄉手搖船 ✕ 神戶六甲山 860m ✕ 有馬溫泉金湯 ✕ Mouriya A5 神戶牛 ✕ 勝尾寺萬隻紅達摩 ✕ 傍晚 6 大環線  
 
 ---

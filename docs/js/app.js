@@ -13,10 +13,10 @@ document.addEventListener('DOMContentLoaded', () => {
 /* ---------- 1. 日文發音、平假名、羅馬拼音 (Romaji) 知識庫辭典 ---------- */
 const JAPANESE_DICTIONARY = {
   // 飯店與出發地
-  "ホテルグランヴィア大阪": {
+  "大阪梅田駅": {
     hiragana: "ホテル グランヴィア おおさか",
     romaji: "Hoteru Guranvia Ōsaka",
-    en: "Hotel Granvia Osaka"
+    en: "大阪梅田站直結基地"
   },
   
   // Day 1: 難波・中之島

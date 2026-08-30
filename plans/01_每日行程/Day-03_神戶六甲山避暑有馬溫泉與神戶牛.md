@@ -4,7 +4,7 @@
 > **核心主題**：高山避暑 (24°C) ✕ 昭和登山纜車 ✕ 索道飛越峽谷 ✕ 日本三大古湯「金之湯」✕ A5 神戶牛鐵板燒 ✕ 神戶港 BE KOBE 夜景 ✕ 實戰避坑 6 大盤點  
 > **即時氣象與實況**：[🌐 兵庫神戶 10 日天氣預報 (Weather.com)](https://weather.com/zh-TW/jp/hyogo/city/kobe/tenday) ｜ [🌐 兵庫姬路 10 日天氣預報 (Weather.com)](https://weather.com/zh-TW/jp/hyogo/city/himeji/tenday) ｜ [📹 六甲山天覽台即時 Live Cam](https://www.rokkosan.com/live_camera/)  
 > **使用票券**：**🌟 【JR 關西地區鐵路周遊券 2 日券】**（第 2 日使用，大阪～神戶新快速無限搭乘）＋ 六甲有馬越嶺乘車券  
-> **住宿大本營**：[大阪格蘭比亞大酒店 (Hotel Granvia Osaka / JR 大阪站直結)](https://www.google.com/maps/search/?api=1&query=Hotel+Granvia+Osaka)
+> **住宿大本營**：[大阪梅田站直結基地 (大阪梅田站直結基地 / JR 大阪站直結)](https://www.google.com/maps/search/?api=1&query=Hotel+大阪梅田站直結基地+Osaka)
 
 ---
 
@@ -20,7 +20,7 @@
 | **15:35 ~ 16:15** | **有馬 ➔ 神戶三之宮** | **30 分鐘直達急行巴士（免轉車！）** | 有馬溫泉站搭乘「阪急/JR有馬急行巴士」直達神戶三宮站前 |
 | **16:30 ~ 18:15** | **Mouriya 正宗神戶牛** | **A5 極上黑毛神戶牛鐵板燒**<br>• 140 年歷史名店（周杰倫愛店）<br>• 油脂熔點 14°C，入口即化極致饗宴 | 步行 3 分鐘至 Mouriya 本店 |
 | **18:30 ~ 19:15** | **神戶港 Meriken Park** | **瀨戶內海海風 ✕ 百萬夜景**<br>• **「BE KOBE」** 紀念地標拍照<br>• 紅色神戶港塔 (Port Tower) 夕陽暮色點燈 | 搭計程車 5 分鐘或散步至美利堅公園 |
-| **19:30 ~ 19:55** | **返回大阪 (JR 新快速)** | **超快速！21 分鐘直達梅田** | JR 三之宮站搭乘 **JR 新快速** 21 分鐘直達 JR 大阪站，搭電梯回 Granvia 休息 |
+| **19:30 ~ 19:55** | **返回大阪 (JR 新快速)** | **超快速！21 分鐘直達梅田** | JR 三之宮站搭乘 **JR 新快速** 21 分鐘直達 JR 大阪站，搭電梯回 大阪梅田站直結基地 休息 |
 
 ---
 
